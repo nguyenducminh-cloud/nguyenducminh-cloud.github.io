@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | My Portfolio</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
+        nav { background-color: #24292e; padding: 15px; text-align: center; }
+        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
+        nav a:hover { color: #00bcd4; }
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; text-align: center; }
+        .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; margin-top: 20px; border-radius: 6px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="personal.html">Personal</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to My Dashboard</h1>
+        <p>Explore my personal space, read my latest blog posts, or get in touch.</p>
+        
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+        <h3>Featured Video</h3>
+        <!-- Embedded YouTube Video with your specific timestamp -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/-8sM6MQtR4U?start=690" 
+                title="YouTube video player" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+</body>
+</html>

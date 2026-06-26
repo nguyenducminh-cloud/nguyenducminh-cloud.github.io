@@ -16,15 +16,15 @@
         
         /* --- THANH NAV GOM GIỮA CỦA BACKGROUND TRỎ RA NGOÀI LẤY GIF --- */
         nav { 
-            /* 1. Thiết lập chuỗi màu loang gọn gàng: Đỏ -> Trắng -> Xanh dương -> quay lại Đỏ */
-            background: linear-gradient(-45deg, #ff3333, #ffffff, #2b6cb0, #ff3333);
+            /* 1. Phối màu Đỏ hồng pastel -> Trắng kem -> Xanh biển dịu -> Đỏ hồng pastel */
+            background: linear-gradient(-45deg, #fba4a4, #fdfbf7, #a0c4df, #fba4a4);
+            background-size: 300% 300%; 
             
-            /* Giữ nguyên các thông số cấu hình mượt mà vô tận và kích thước to rộng */
-            background-size: 300% 300%; /* Thu nhỏ tỉ lệ một xíu vì chỉ còn 3 màu để chuyển động mượt hơn */
-            animation: gradientMove 10s linear infinite; /* Giảm xuống 10 giây để nhịp chuyển màu Đỏ-Trắng-Xanh trông vừa mắt */
+            /* 2. CHẠY SLOW: Tăng thời gian lên 25 giây để màu chuyển động chậm rãi, thư thái */
+            animation: gradientMove 25s linear infinite; 
             
             padding: 24px 0; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Giảm độ đậm của bóng đổ cho thanh thoát */
             display: flex;
             justify-content: center;
         }
@@ -33,10 +33,7 @@
             width: 100%;
             max-width: 840px;
             display: flex;
-            
-            /* 3. Gom cả Logo và cụm Menu xích lại sát nhau ở CHÍNH GIỮA HEADER */
             justify-content: center; 
-            
             align-items: center;
             padding: 0 20px;
             box-sizing: border-box;
@@ -46,11 +43,10 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            margin-right: 30px; /* Tăng khoảng cách nhẹ giữa logo và chữ cho thoáng */
+            margin-right: 30px; 
         }
 
         .nav-logo img {
-            /* Tăng kích thước logo lên một chút (từ 35px lên 42px) để cân xứng với header to */
             width: 42px !important;
             height: 42px !important;
             object-fit: contain;
@@ -61,19 +57,29 @@
             display: flex;
         }
 
+        /* --- TRẠNG THÁI CHỮ MẶC ĐỊNH --- */
         .nav-links a { 
-            color: #1a202c; 
+            color: #3a4250; /* Màu chữ xám than dịu mát, không bị quá đen gắt */
             text-decoration: none; 
             margin-left: 20px; 
             margin-right: 15px;
             font-weight: bold; 
-            font-size: 1.05rem; /* Tăng cỡ chữ menu lên một xíu cho dễ đọc */
-            text-shadow: 0 1px 1px rgba(255,255,255,0.8);
-            transition: color 0.2s ease;
+            font-size: 1.05rem; 
+            text-shadow: 0 1px 1px rgba(255,255,255,0.7);
+            position: relative;
+            transition: all 0.25s ease-in-out; /* Hiệu ứng chuyển màu chữ cũng mượt mà chậm rãi hơn */
         }
 
+        /* --- TRẠNG THÁI DI CHUỘT VÀO (HOVER) --- */
         .nav-links a:hover { 
-            color: #dd6b20; 
+            color: #5c93c4; /* Chuyển sang màu xanh dương dịu nhẹ */
+            transform: translateY(-1px);
+        }
+
+        /* --- TRẠNG THÁI BẤM ĐÈ CHUỘT (ACTIVE) --- */
+        .nav-links a:active { 
+            color: #d47a7a !important; /* Đổi sang màu đỏ hồng ấm áp khi click */
+            transform: scale(0.96);
         }
 
         /* === CSS TIMELINE === */

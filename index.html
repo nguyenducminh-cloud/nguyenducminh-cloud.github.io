@@ -18,14 +18,14 @@
 
         /* --- CẤU HÌNH HEADER / NAV GOM VÀO GIỮA VÀ NỀN GIF ĐỘNG --- */
         nav { 
-            /* 1. Thiết lập chuỗi màu loang chạy vô tận như GIF */
-            background: linear-gradient(-45deg, #ff3333, #ffffff, #2b6cb0, #2f855a, #ff3333);
-            background-size: 400% 400%;
-            animation: gradientMove 12s linear infinite;
+            /* 1. Thiết lập chuỗi màu loang gọn gàng: Đỏ -> Trắng -> Xanh dương -> quay lại Đỏ */
+            background: linear-gradient(-45deg, #ff3333, #ffffff, #2b6cb0, #ff3333);
             
-            /* 2. TĂNG PADDING: Giúp thanh Header to hơn, rộng rãi và cao cấp hơn */
+            /* Giữ nguyên các thông số cấu hình mượt mà vô tận và kích thước to rộng */
+            background-size: 300% 300%; /* Thu nhỏ tỉ lệ một xíu vì chỉ còn 3 màu để chuyển động mượt hơn */
+            animation: gradientMove 10s linear infinite; /* Giảm xuống 10 giây để nhịp chuyển màu Đỏ-Trắng-Xanh trông vừa mắt */
+            
             padding: 24px 0; 
-            
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             display: flex;
             justify-content: center;

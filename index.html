@@ -6,15 +6,90 @@
     <title>Dashboard | My Portfolio</title>
     
     <link rel="icon" type="image/png" href="materials/picture/favorite_icon/favicon2.png">
-    <link rel="stylesheet" href="style.css">
     
     <style>
-        /* Riêng tư của Dashboard: Khung ảnh chân dung & Video */
-        .container { max-width: 800px; margin: 40px auto; padding: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; text-align: center; }
-        .profile-frame { width: 200px; height: 200px; margin: 20px auto; border: 4px solid #24292e; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
-        .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
-        .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; margin-top: 20px; border-radius: 6px; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        /* === ĐOẠN CSS ĐẢM BẢO LOGO KHÔNG BỊ PHÓNG TO === */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        nav { 
+            background-color: #24292e; 
+            padding: 10px 40px; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .nav-logo img {
+            width: 35px !important;   /* Ép buộc logo chỉ rộng 35px */
+            height: 35px !important;  /* Ép buộc logo chỉ cao 35px */
+            object-fit: contain;
+            border-radius: 6px; 
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: bold; 
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover { 
+            color: #00bcd4; 
+        }
+
+        /* === CSS RIÊNG CỦA TRANG DASHBOARD === */
+        .container { 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background: white; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            border-radius: 8px; 
+            text-align: center; 
+        }
+        .profile-frame { 
+            width: 200px; 
+            height: 200px; 
+            margin: 20px auto; 
+            border: 4px solid #24292e; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15); 
+        }
+        .profile-frame img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+        .video-container { 
+            position: relative; 
+            padding-bottom: 56.25%; 
+            padding-top: 30px; 
+            height: 0; 
+            overflow: hidden; 
+            margin-top: 20px; 
+            border-radius: 6px; 
+        }
+        .video-container iframe { 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            border: 0; 
+        }
     </style>
 </head>
 <body>
@@ -38,10 +113,16 @@
         </div>
         <h1>Welcome to My Dashboard</h1>
         <p>Explore my personal space, read my latest blog posts, or get in touch.</p>
+        
         <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+        
         <h3>Featured Video</h3>
         <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/-8sM6MQtR4U?start=690" title="YouTube video player" allowfullscreen></iframe>
+            <iframe 
+                src="https://www.youtube.com/embed/-8sM6MQtR4U?start=690" 
+                title="YouTube video player" 
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
 

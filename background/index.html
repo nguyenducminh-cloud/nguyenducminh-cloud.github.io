@@ -4,12 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Background | Portfolio</title>
-    
     <link rel="icon" type="image/png" href="../materials/picture/favorite_icon/favicon2.png">
-    <link rel="stylesheet" href="../style.css">
-    
     <style>
-        /* Riêng tư của Background: Cấu hình Timeline */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        
+        /* === ĐOẠN CSS ĐẢM BẢO LOGO KHÔNG BỊ PHÓNG TO === */
+        nav { 
+            background-color: #24292e; 
+            padding: 10px 40px; 
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .nav-logo img {
+            width: 35px !important;
+            height: 35px !important;
+            object-fit: contain;
+            border-radius: 6px; 
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: bold; 
+            font-size: 0.95rem;
+        }
+        .nav-links a:hover { 
+            color: #00bcd4; 
+        }
+
+        /* === CSS RIÊNG CỦA TRANG BACKGROUND === */
         .content { max-width: 800px; margin: 40px auto; padding: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; }
         .page-title { text-align: center; margin-bottom: 20px; color: #24292e; }
         .section-title { font-size: 1.6rem; color: #24292e; border-bottom: 2px solid #24292e; padding-bottom: 5px; margin-top: 40px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
@@ -43,6 +82,7 @@
 
     <div class="content">
         <h1 class="page-title">My Background</h1>
+
         <h2 class="section-title">Work Experience</h2>
         <div class="timeline">
             <div class="timeline-item">
@@ -51,7 +91,7 @@
                     <span class="time-badge">05/2024 - 07/2024</span>
                     <h2>Orient Commercial Joint Stock Bank (OCB)</h2>
                     <p class="major">Data Science Intern</p>
-                    <p class="grade">Task: Web Crawling and Data Preprocessing</p>
+                    <p class="grade">Task: Analysed financial data, optimized predictive models, and assisted in building data-driven solutions for banking workflows.</p>
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education | Portfolio</title>
+    <title>Background | Portfolio</title>
     <link rel="icon" type="image/png" href="../materials/picture/favorite_icon/favicon1.png">
     <style>
         body { 
@@ -37,8 +37,21 @@
         }
         .page-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             color: #24292e;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            color: #24292e;
+            border-bottom: 2px solid #24292e;
+            padding-bottom: 5px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title:first-of-type {
+            margin-top: 10px;
         }
 
         /* --- CẤU HÌNH TIMELINE --- */
@@ -71,7 +84,7 @@
             margin-bottom: 30px;
         }
 
-        /* Khung chứa logo trường */
+        /* Khung chứa logo trường/công ty */
         .school-logo-frame {
             position: absolute;
             width: 64px;
@@ -80,7 +93,7 @@
             top: 15px;
             background-color: white;
             border: 3px solid #00bcd4;
-            border-radius: 50%; /* Bo tròn logo trường */
+            border-radius: 50%; /* Bo tròn logo */
             z-index: 1;
             overflow: hidden;
             display: flex;
@@ -95,7 +108,7 @@
             object-fit: contain; /* Giữ nguyên tỉ lệ logo không bị méo */
         }
 
-        /* Thẻ nội dung thông tin trường */
+        /* Thẻ nội dung thông tin */
         .timeline-body {
             padding: 20px;
             background-color: #f8f9fa;
@@ -147,10 +160,31 @@
     </nav>
 
     <div class="content">
-        <h1 class="page-title">Education Timeline</h1>
+        <h1 class="page-title">My Background</h1>
 
+        <!-- ================= PHẦN 1: WORK EXPERIENCE ================= -->
+        <h2 class="section-title">Work Experience</h2>
         <div class="timeline">
 
+            <!-- WORK MILESTONE 1: OCB -->
+            <div class="timeline-item">
+                <div class="school-logo-frame">
+                    <!-- Bạn hãy tạo folder /company_logo/ và bỏ ảnh ocb.png vào nhé -->
+                    <img src="../materials/picture/company_logo/ocb.png" alt="OCB Logo">
+                </div>
+                <div class="timeline-body">
+                    <span class="time-badge">05/2024 - 07/2024</span>
+                    <h2>Orient Commercial Joint Stock Bank (OCB)</h2>
+                    <p class="major">Data Science Intern</p>
+                    <p class="grade">Task: Data Crawling and Preprocessing</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ================= PHẦN 2: EDUCATION ================= -->
+        <h2 class="section-title">Education</h2>
+        <div class="timeline">
 
             <!-- MILESTONE 2: VNUHCM - UNIVERSITY OF SCIENCE -->
             <div class="timeline-item">
@@ -171,7 +205,6 @@
                     <img src="../materials/picture/school_badge/lhp.png" alt="LHP Logo">
                 </div>
                 <div class="timeline-body">
-                    <!-- Bạn có thể tùy chỉnh lại mốc thời gian thực tế của mình tại đây -->
                     <span class="time-badge">08/2017 - 07/2020</span>
                     <h2>Le Hong Phong High School for the Gifted</h2>
                     <p class="major">Class: Natural Sciences Specialisation (A)</p>
@@ -179,14 +212,12 @@
                 </div>
             </div>
 
-
-            <!-- MILESTONE 3: THPT CHUYÊN LÊ HỒNG PHONG -->
+            <!-- MILESTONE 4: NGUYEN VAN TO SECONDARY SCHOOL -->
             <div class="timeline-item">
                 <div class="school-logo-frame">
                     <img src="../materials/picture/school_badge/nvt.png" alt="Secondary Logo">
                 </div>
                 <div class="timeline-body">
-                    <!-- Bạn có thể tùy chỉnh lại mốc thời gian thực tế của mình tại đây -->
                     <span class="time-badge">08/2013 - 06/2017</span>
                     <h2>Nguyen Van To Secondary School</h2>
                     <p class="major">Class: 9/2</p>
@@ -194,14 +225,12 @@
                 </div>
             </div>
 
-
-            <!-- MILESTONE 3: THPT CHUYÊN LÊ HỒNG PHONG -->
+            <!-- MILESTONE 5: DUONG MIH CHAU PRIMARY SCHOOL -->
             <div class="timeline-item">
                 <div class="school-logo-frame">
                     <img src="../materials/picture/school_badge/dmc.png" alt="Primary Logo">
                 </div>
                 <div class="timeline-body">
-                    <!-- Bạn có thể tùy chỉnh lại mốc thời gian thực tế của mình tại đây -->
                     <span class="time-badge">08/2007 - 05/2013</span>
                     <h2>Duong Minh Chau Primary School</h2>
                     <p class="major">Class: 5/5</p>
@@ -209,20 +238,18 @@
                 </div>
             </div>
 
-            <!-- MILESTONE 3: THPT CHUYÊN LÊ HỒNG PHONG -->
+            <!-- MILESTONE 6: MANG NON 1 KINDERGARTEN -->
             <div class="timeline-item">
                 <div class="school-logo-frame">
-                    <img src="../materials/picture/school_badge/mn1q10.png" alt="Kindergarten Logo">
+                    <img src="../materials/picture/school_badge/MN1Q10.png" alt="Kindergarten Logo">
                 </div>
                 <div class="timeline-body">
-                    <!-- Bạn có thể tùy chỉnh lại mốc thời gian thực tế của mình tại đây -->
                     <span class="time-badge">08/2004 - 05/2007</span>
                     <h2>Mang Non 1 Kindergarten - District 10</h2>
                     <p class="major">Class: Lá 2</p>
                     <p class="grade">GPA: Excellent</p>
                 </div>
             </div>
-
 
         </div>
     </div>

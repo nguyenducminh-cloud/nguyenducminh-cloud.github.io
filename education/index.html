@@ -3,14 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Portfolio</title>
+    <title>Education | Portfolio</title>
     <link rel="icon" type="image/png" href="../materials/picture/favorite_icon/favicon.png">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
-        nav { background-color: #24292e; padding: 15px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        nav a:hover { color: #00bcd4; }
-        .content { max-width: 800px; margin: 40px auto; padding: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; text-align: center; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        nav { 
+            background-color: #24292e; 
+            padding: 15px; 
+            text-align: center; 
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-weight: bold; 
+        }
+        nav a:hover { 
+            color: #00bcd4; 
+        }
+        .content { 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background: white; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            border-radius: 8px; 
+        }
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #24292e;
+        }
+
+        /* --- CẤU HÌNH TIMELINE --- */
+        .timeline {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        /* Trục dọc chính giữa của timeline */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: #24292e;
+            top: 0;
+            bottom: 0;
+            left: 32px; /* Đặt trục dọc thẳng hàng với tâm của logo */
+            margin-left: -2px;
+        }
+
+        /* Từng khối mốc thời gian (Milestone Item) */
+        .timeline-item {
+            padding: 10px 30px;
+            position: relative;
+            background-color: inherit;
+            width: auto;
+            margin-left: 60px; /* Nhường chỗ cho trục dọc và logo bên trái */
+            margin-bottom: 30px;
+        }
+
+        /* Khung chứa logo trường */
+        .school-logo-frame {
+            position: absolute;
+            width: 64px;
+            height: 64px;
+            left: -60px; /* Đẩy logo sang trái đè lên trục dọc */
+            top: 15px;
+            background-color: white;
+            border: 3px solid #00bcd4;
+            border-radius: 50%; /* Bo tròn logo trường */
+            z-index: 1;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .school-logo-frame img {
+            width: 85%;
+            height: 85%;
+            object-fit: contain; /* Giữ nguyên tỉ lệ logo không bị méo */
+        }
+
+        /* Thẻ nội dung thông tin trường */
+        .timeline-body {
+            padding: 20px;
+            background-color: #f8f9fa;
+            position: relative;
+            border-radius: 8px;
+            border-left: 5px solid #00bcd4; /* Thanh màu tạo điểm nhấn bên trái */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .timeline-body h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.3rem;
+            color: #24292e;
+        }
+
+        .timeline-body .major {
+            margin: 0 0 8px 0;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .timeline-body .time-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #24292e;
+            color: white;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-body .grade {
+            margin: 8px 0 0 0;
+            font-size: 0.95rem;
+            color: #00bcd4;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -24,8 +147,39 @@
     </nav>
 
     <div class="content">
-        <h1>Contact Me</h1>
-        <p>Feel free to reach out via email or social media handles.</p>
+        <h1 class="page-title">Education Timeline</h1>
+
+        <div class="timeline">
+
+
+            <!-- MILESTONE 2: VNUHCM - UNIVERSITY OF SCIENCE -->
+            <div class="timeline-item">
+                <div class="school-logo-frame">
+                    <img src="../materials/picture/school_badge/hcmus.png" alt="HCMUS Logo">
+                </div>
+                <div class="timeline-body">
+                    <span class="time-badge">09/2020 - 12/2024</span>
+                    <h2>VNUHCM - University of Science</h2>
+                    <p class="major">Bachelor of Data Science</p>
+                    <p class="grade">GPA: Graduated</p>
+                </div>
+            </div>
+
+            <!-- MILESTONE 3: THPT CHUYÊN LÊ HỒNG PHONG -->
+            <div class="timeline-item">
+                <div class="school-logo-frame">
+                    <img src="../materials/picture/school_badge/lhp.png" alt="LHP Logo">
+                </div>
+                <div class="timeline-body">
+                    <!-- Bạn có thể tùy chỉnh lại mốc thời gian thực tế của mình tại đây -->
+                    <span class="time-badge">08/2017 - 07/2020</span>
+                    <h2>Le Hong Phong High School for the Gifted</h2>
+                    <p class="major">Class: Natural Sciences Specialisation</p>
+                    <p class="grade">GPA: Excellent</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </body>

@@ -16,48 +16,64 @@
         
         /* --- THANH NAV GOM GIỮA CÓ NỀN GIF ĐỘNG --- */
         nav { 
-            background-image: url('../materials/picture/favorite_icon/cover_page.gif'); /* Đổi tên file ở đây */
-            background-color: #24292e; 
-            background-size: cover;
-            background-position: center;
-            padding: 12px 0; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            /* 1. Thiết lập chuỗi màu loang chạy vô tận như GIF */
+            background: linear-gradient(-45deg, #ff3333, #ffffff, #2b6cb0, #2f855a, #ff3333);
+            background-size: 400% 400%;
+            animation: gradientMove 12s linear infinite;
+            
+            /* 2. TĂNG PADDING: Giúp thanh Header to hơn, rộng rãi và cao cấp hơn */
+            padding: 24px 0; 
+            
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             display: flex;
             justify-content: center;
         }
+
         .nav-container {
             width: 100%;
             max-width: 840px;
             display: flex;
-            justify-content: space-between;
+            
+            /* 3. Gom cả Logo và cụm Menu xích lại sát nhau ở CHÍNH GIỮA HEADER */
+            justify-content: center; 
+            
             align-items: center;
             padding: 0 20px;
             box-sizing: border-box;
         }
+
         .nav-logo {
             display: flex;
             align-items: center;
             text-decoration: none;
+            margin-right: 30px; /* Tăng khoảng cách nhẹ giữa logo và chữ cho thoáng */
         }
+
         .nav-logo img {
-            width: 35px !important;
-            height: 35px !important;
+            /* Tăng kích thước logo lên một chút (từ 35px lên 42px) để cân xứng với header to */
+            width: 42px !important;
+            height: 42px !important;
             object-fit: contain;
-            border-radius: 6px; 
+            border-radius: 8px; 
         }
+
         .nav-links {
             display: flex;
         }
+
         .nav-links a { 
-            color: white; 
+            color: #1a202c; 
             text-decoration: none; 
-            margin-left: 25px; 
+            margin-left: 20px; 
+            margin-right: 15px;
             font-weight: bold; 
-            font-size: 0.95rem;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            font-size: 1.05rem; /* Tăng cỡ chữ menu lên một xíu cho dễ đọc */
+            text-shadow: 0 1px 1px rgba(255,255,255,0.8);
+            transition: color 0.2s ease;
         }
+
         .nav-links a:hover { 
-            color: #00bcd4; 
+            color: #dd6b20; 
         }
 
         /* --- KHUNG NỘI DUNG TRANG BLOG --- */

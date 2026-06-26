@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" href="materials/picture/favorite_icon/favicon2.png">
     
     <style>
-        /* === ĐOẠN CSS ĐẢM BẢO LOGO KHÔNG BỊ PHÓNG TO === */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
@@ -16,22 +15,38 @@
             background-color: #f8f9fa; 
             color: #333; 
         }
+
+        /* --- CẤU HÌNH HEADER / NAV GOM VÀO GIỮA VÀ NỀN GIF ĐỘNG --- */
         nav { 
+            background-image: url('materials/picture/favorite_icon/cover_page.gif'); /* Đổi tên file ở đây */
             background-color: #24292e; 
-            padding: 10px 40px; 
-            display: flex;
-            justify-content: space-between; 
-            align-items: center; 
+            background-size: cover;
+            background-position: center;
+            padding: 12px 0; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
         }
+        
+        /* Khung bọc giới hạn độ rộng để Logo và Links không bị đẩy ra quá xa */
+        .nav-container {
+            width: 100%;
+            max-width: 840px; /* Khớp tỉ lệ với khung content bên dưới của bạn */
+            display: flex;
+            justify-content: space-between; /* Đẩy logo sang trái, cụm link sang phải trong phạm vi 840px */
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
         .nav-logo {
             display: flex;
             align-items: center;
             text-decoration: none;
         }
         .nav-logo img {
-            width: 35px !important;   /* Ép buộc logo chỉ rộng 35px */
-            height: 35px !important;  /* Ép buộc logo chỉ cao 35px */
+            width: 35px !important;
+            height: 35px !important;
             object-fit: contain;
             border-radius: 6px; 
         }
@@ -44,66 +59,34 @@
             margin-left: 25px; 
             font-weight: bold; 
             font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5); /* Đổ bóng chữ để dễ đọc trên nền GIF */
         }
         .nav-links a:hover { 
             color: #00bcd4; 
         }
 
-        /* === CSS RIÊNG CỦA TRANG DASHBOARD === */
-        .container { 
-            max-width: 800px; 
-            margin: 40px auto; 
-            padding: 20px; 
-            background: white; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-            border-radius: 8px; 
-            text-align: center; 
-        }
-        .profile-frame { 
-            width: 200px; 
-            height: 200px; 
-            margin: 20px auto; 
-            border: 4px solid #24292e; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15); 
-        }
-        .profile-frame img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-        }
-        .video-container { 
-            position: relative; 
-            padding-bottom: 56.25%; 
-            padding-top: 30px; 
-            height: 0; 
-            overflow: hidden; 
-            margin-top: 20px; 
-            border-radius: 6px; 
-        }
-        .video-container iframe { 
-            position: absolute; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%; 
-            border: 0; 
-        }
+        /* === CSS KHUNG NỘI DUNG BIỂU DIỄN === */
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; text-align: center; }
+        .profile-frame { width: 200px; height: 200px; margin: 20px auto; border: 4px solid #24292e; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
+        .profile-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .video-container { position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden; margin-top: 20px; border-radius: 6px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="/" class="nav-logo">
-            <img src="materials/picture/favorite_icon/favicon2.png" alt="Logo">
-        </a>
-        <div class="nav-links">
-            <a href="/">Dashboard</a>
-            <a href="personal/">Personal</a>
-            <a href="blog/">Blog</a>
-            <a href="background/">Background</a>
-            <a href="contact/">Contact</a>
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img src="materials/picture/favorite_icon/favicon2.png" alt="Logo">
+            </a>
+            <div class="nav-links">
+                <a href="/">Dashboard</a>
+                <a href="personal/">Personal</a>
+                <a href="blog/">Blog</a>
+                <a href="background/">Background</a>
+                <a href="contact/">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -113,16 +96,10 @@
         </div>
         <h1>Welcome to My Dashboard</h1>
         <p>Explore my personal space, read my latest blog posts, or get in touch.</p>
-        
         <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
-        
         <h3>Featured Video</h3>
         <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/embed/-8sM6MQtR4U?start=690" 
-                title="YouTube video player" 
-                allowfullscreen>
-            </iframe>
+            <iframe src="https://www.youtube.com/embed/-8sM6MQtR4U?start=690" title="YouTube video player" allowfullscreen></iframe>
         </div>
     </div>
 

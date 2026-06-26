@@ -5,28 +5,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal | Portfolio</title>
     <link rel="icon" type="image/png" href="../materials/picture/favorite_icon/favicon2.png">
-    <link rel="stylesheet" href="../style.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; }
-        nav { background-color: #24292e; padding: 15px; text-align: center; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-weight: bold; }
-        nav a:hover { color: #00bcd4; }
-        .content { max-width: 800px; margin: 40px auto; padding: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; text-align: center; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f8f9fa; 
+            color: #333; 
+        }
+        
+        /* --- THANH NAV GOM GIỮA CÓ NỀN GIF ĐỘNG --- */
+        nav { 
+            background-image: url('../materials/picture/favorite_icon/cover_page.gif'); /* Đổi tên file ở đây */
+            background-color: #24292e; 
+            background-size: cover;
+            background-position: center;
+            padding: 12px 0; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+        }
+        .nav-container {
+            width: 100%;
+            max-width: 840px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .nav-logo img {
+            width: 35px !important;
+            height: 35px !important;
+            object-fit: contain;
+            border-radius: 6px; 
+        }
+        .nav-links {
+            display: flex;
+        }
+        .nav-links a { 
+            color: white; 
+            text-decoration: none; 
+            margin-left: 25px; 
+            font-weight: bold; 
+            font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .nav-links a:hover { 
+            color: #00bcd4; 
+        }
+
+        /* --- KHUNG NỘI DUNG TRANG PERSONAL --- */
+        .content { 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background: white; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            border-radius: 8px; 
+        }
+        .page-title {
+            text-align: center;
+            color: #24292e;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="../">Dashboard</a>
-        <a href="../personal/">Personal</a>
-        <a href="../blog/">Blog</a>
-        <a href="../background/">Background</a>
-        <a href="../contact/">Contact</a>
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="../materials/picture/favorite_icon/favicon2.png" alt="Logo">
+            </a>
+            <div class="nav-links">
+                <a href="../">Dashboard</a>
+                <a href="../personal/">Personal</a>
+                <a href="../blog/">Blog</a>
+                <a href="../background/">Background</a>
+                <a href="../contact/">Contact</a>
+            </div>
+        </div>
     </nav>
 
     <div class="content">
-        <h1>About Me</h1>
-        <p>This is where you can showcase your background, skills, and interests.</p>
+        <h1 class="page-title">Personal Space</h1>
+        <p style="text-align: center; color: #666;">This is my personal corner where I share my hobbies, music, and off-duty activities.</p>
     </div>
 
 </body>

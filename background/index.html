@@ -14,14 +14,25 @@
             color: #333; 
         }
         
-        /* === ĐOẠN CSS ĐẢM BẢO LOGO KHÔNG BỊ PHÓNG TO === */
+        /* --- THANH NAV GOM GIỮA CỦA BACKGROUND TRỎ RA NGOÀI LẤY GIF --- */
         nav { 
+            background-image: url('../materials/picture/favorite_icon/cover_page.gif'); /* Đổi tên file ở đây */
             background-color: #24292e; 
-            padding: 10px 40px; 
-            display: flex;
-            justify-content: space-between; 
-            align-items: center; 
+            background-size: cover;
+            background-position: center;
+            padding: 12px 0; 
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+        }
+        .nav-container {
+            width: 100%;
+            max-width: 840px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
         }
         .nav-logo {
             display: flex;
@@ -43,12 +54,13 @@
             margin-left: 25px; 
             font-weight: bold; 
             font-size: 0.95rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         .nav-links a:hover { 
             color: #00bcd4; 
         }
 
-        /* === CSS RIÊNG CỦA TRANG BACKGROUND === */
+        /* === CSS TIMELINE === */
         .content { max-width: 800px; margin: 40px auto; padding: 20px; background: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-radius: 8px; }
         .page-title { text-align: center; margin-bottom: 20px; color: #24292e; }
         .section-title { font-size: 1.6rem; color: #24292e; border-bottom: 2px solid #24292e; padding-bottom: 5px; margin-top: 40px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
@@ -68,15 +80,17 @@
 <body>
 
     <nav>
-        <a href="../" class="nav-logo">
-            <img src="../materials/picture/favorite_icon/favicon2.png" alt="Logo">
-        </a>
-        <div class="nav-links">
-            <a href="../">Dashboard</a>
-            <a href="../personal/">Personal</a>
-            <a href="../blog/">Blog</a>
-            <a href="../background/">Background</a>
-            <a href="../contact/">Contact</a>
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <img src="../materials/picture/favorite_icon/favicon2.png" alt="Logo">
+            </a>
+            <div class="nav-links">
+                <a href="../">Dashboard</a>
+                <a href="../personal/">Personal</a>
+                <a href="../blog/">Blog</a>
+                <a href="../background/">Background</a>
+                <a href="../contact/">Contact</a>
+            </div>
         </div>
     </nav>
 
@@ -135,7 +149,9 @@
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="school-logo-frame"><img src="../materials/picture/school_badge/MN1Q10.png" alt="Kindergarten Logo"></div>
+                <div class="school-logo-frame">
+                    <img src="../materials/picture/school_badge/MN1Q10.png" alt="Kindergarten Logo">
+                </div>
                 <div class="timeline-body">
                     <span class="time-badge">08/2004 - 05/2007</span>
                     <h2>Mang Non 1 Kindergarten - District 10</h2>

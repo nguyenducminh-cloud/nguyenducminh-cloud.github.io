@@ -1,0 +1,68 @@
+MINH NGUYEN — PORTFOLIO: BẢN UPLOAD MỘT LẦN
+
+Toàn bộ website nằm trong cùng một thư mục. Không có thư mục con.
+
+CÁCH UPLOAD
+1. Chuột phải vào ZIP → Extract All… để giải nén.
+2. Mở thư mục vừa giải nén, nơi bạn thấy index.html và các file khác.
+3. Mở repository nguyenducminh-cloud.github.io trên GitHub.
+4. Ở ngoài cùng repository, chọn Add file → Upload files.
+5. Trong cửa sổ chọn file, mở thư mục đã giải nén → Ctrl+A → Open.
+   Hoặc Ctrl+A trong File Explorer rồi kéo toàn bộ FILE vào vùng upload.
+6. Bấm Commit changes, chọn nhánh main.
+7. Settings → Pages → Source: Deploy from a branch → main → /(root) → Save.
+8. Chờ GitHub Pages triển khai xong; mở website và nhấn Ctrl+F5 để tải bản mới.
+
+Không upload nguyên ZIP. Upload TẤT CẢ các file đã giải nén trong MỘT LẦN.
+index.html phải nằm ngay ngoài cùng repository.
+Gói gồm dưới 100 file, không có file nào quá 25 MiB.
+Các file cũ trùng tên được cập nhật khi commit. Những thư mục cũ có thể để nguyên;
+thanh điều hướng mới sử dụng các file .html nằm ngoài cùng.
+
+CÁC TRANG
+index.html       Dashboard
+personal.html    Thông tin cá nhân và kỹ năng
+experience.html  Timeline học tập, công việc, tình nguyện
+blog.html        Danh sách và trang đọc bài
+contact.html     Liên hệ
+studio.html      Soạn và xem trước blog
+background.html  Chuyển đến experience.html
+
+CẬP NHẬT NỘI DUNG
+- Sửa profile.js để cập nhật hồ sơ, timeline, kỹ năng.
+- Thay avatar.png để cập nhật ảnh. Giữ nguyên tên file.
+- Thay Mario_Nguyen.pdf để cập nhật CV tải xuống.
+- Sửa style.css để đổi giao diện.
+- Tất cả ảnh, CSS, JavaScript, PDF đều nằm ngay ngoài cùng.
+
+VIẾT BLOG
+1. Mở studio.html, soạn bài, Save draft để lưu trong trình duyệt.
+2. Preview article để xem trước.
+3. Download posts.js để xuất bài.
+4. Upload posts.js vào NGOÀI CÙNG repository, thay file posts.js cũ rồi commit.
+5. GitHub Pages sẽ cập nhật bài sau khi triển khai xong.
+
+File xuất gồm bài có sẵn + TẤT CẢ nháp đã lưu + form đang mở.
+Chỉ upload khi mọi bài trong file đã sẵn sàng công khai.
+Có thể giữ nội dung chưa xong trong bản sao JSON riêng trước khi xóa nháp.
+Xóa nháp không xóa bài đã có trong file website. Muốn xóa bài đã đăng,
+xóa đối tượng bài tương ứng trong posts.js rồi commit.
+Nháp chỉ lưu trong trình duyệt hiện tại, không tự đồng bộ. Xuất JSON để dự phòng.
+Người khác không thể thay website qua Studio; quyền đăng bài thuộc repository GitHub.
+
+LIÊN HỆ
+Form contact.html mở ứng dụng email với bản nháp; người viết tự bấm gửi trong email.
+Website tương tác bằng JavaScript trong trình duyệt, không cần build hay backend.
+
+ĐỊA CHỈ WEBSITE
+Tài khoản nguyenducminh-cloud → https://nguyenducminh-cloud.github.io/
+minhnguyen.github.io cần sở hữu tài khoản/tổ chức GitHub tên minhnguyen.
+Không đổi được hostname đó chỉ bằng cách đặt lại tên repository trên tài khoản hiện tại.
+
+XEM TRÊN MÁY
+Có thể mở index.html bằng trình duyệt. Để thử đầy đủ, mở terminal trong thư mục này:
+  py -m http.server 8000
+Sau đó mở http://localhost:8000/ ; Ctrl+C để dừng.
+
+Tài liệu GitHub:
+https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site

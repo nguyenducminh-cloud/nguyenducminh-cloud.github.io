@@ -86,9 +86,11 @@
   document.body.innerHTML = `<a class="skip-link" href="#page-content">Skip to content</a>
     <aside class="sidebar" id="sidebar" aria-label="Main navigation">
       <a class="brand" href="${base}" aria-label="Minh Nguyen home"><img src="${base}brand.png" alt="Minh’s M logo"><span>minh<span class="brand-dot">.</span><small>THE PERSONAL PORTFOLIO</small></span></a>
-      <div class="nav-caption">EXPLORE MY WORLD</div>
-      <nav>${nav.map(([id,label,url,ic]) => `<a href="${base}${url}" class="nav-item ${id===page?'active':''}" ${id===page?'aria-current="page"':''}>${icon(ic)}<span>${label}</span>${id===page?'<span class="nav-active-dot"></span>':''}</a>`).join('')}</nav>
-      <div class="sidebar-note"><span class="tiny-star">✳</span><p>A curious mind.<br>A work in progress.</p><span class="small-muted">Data. People. Possibilities.</span></div>
+      <div class="sidebar-scroll">
+        <div class="nav-caption">EXPLORE MY WORLD</div>
+        <nav>${nav.map(([id,label,url,ic]) => `<a href="${base}${url}" class="nav-item ${id===page?'active':''}" ${id===page?'aria-current="page"':''}>${icon(ic)}<span>${label}</span>${id===page?'<span class="nav-active-dot"></span>':''}</a>`).join('')}</nav>
+        <div class="sidebar-note"><span class="tiny-star">✳</span><p>A curious mind.<br>A work in progress.</p><span class="small-muted">Data. People. Possibilities.</span></div>
+      </div>
       <div class="sidebar-bottom"><div class="sidebar-profile"><img src="${base}avatar.png" alt=""><div><strong>Minh Nguyen</strong><span>${icon('pin')} Melbourne, AU</span></div></div><div class="sidebar-social"><a href="${escape(config.github)}" target="_blank" rel="noopener noreferrer" aria-label="Minh on GitHub">${icon('github')}</a><a href="mailto:${escape(config.email)}" aria-label="Email Minh">${icon('mail')}</a><span>LET’S CONNECT ${icon('up')}</span></div></div>
     </aside><button class="nav-scrim" aria-label="Close navigation" hidden></button>
     <div class="main-shell"><header class="topbar"><div class="breadcrumbs"><button class="icon-button mobile-menu" aria-label="Open navigation" aria-expanded="false">${icon('menu')}</button><span class="breadcrumb-home">My portfolio</span><span class="breadcrumb-slash">/</span><strong>${pageName}</strong></div><div class="top-actions"><span class="local-time" id="local-time"></span><button class="icon-button search-button" aria-label="Search portfolio (Control K)">${icon('search')}</button><button class="icon-button theme-button" aria-label="Switch colour theme">${icon('moon')}</button></div></header>

@@ -44,3 +44,14 @@
 @media(max-width:480px){.timeline-toolbar{flex-wrap:wrap;gap:15px}.timeline-controls{width:100%;justify-content:space-between;gap:15px}.timeline-order-select{min-width:120px}.timeline-card .org-logo{width:52px;min-width:52px;height:54px}.timeline-card .org-logo-siemens{width:80px;min-width:80px;padding:5px}.timeline-card .org-logo-social-work{width:65px;min-width:65px;height:65px}.timeline-card-head>div:nth-child(2){min-width:90px}.timeline-card-head>.badge{margin-left:62px}.timeline-entry#siemens .timeline-card-head>.badge{margin-left:90px}.timeline-entry#social-work .timeline-card-head>.badge{margin-left:75px}.timeline-card-head h2{overflow-wrap:break-word}.community-preview{padding:20px}.community-organisation strong{font-size:11px}}
 
 .sidebar{overflow-y:auto}.sidebar>nav{flex-shrink:0}
+
+/* Keep the profile visible; only navigation scrolls in short viewports. */
+.sidebar{height:100vh;height:100dvh;max-height:100dvh;bottom:auto;display:grid;grid-template-rows:auto minmax(0,1fr) auto;overflow:hidden;padding-bottom:0}
+.sidebar>.brand{min-width:0;flex-shrink:0}
+.sidebar-scroll{min-height:0;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;padding-bottom:12px;display:flex;flex-direction:column}
+.sidebar-scroll>.nav-caption,.sidebar-scroll>nav,.sidebar-scroll>.sidebar-note{flex-shrink:0}
+.sidebar-bottom{margin-top:0;min-width:0;flex-shrink:0;padding-top:18px;padding-bottom:max(16px,env(safe-area-inset-bottom));position:relative;background:var(--surface);z-index:1}
+.sidebar-profile{min-width:0;flex-shrink:0}
+.sidebar-profile>img{flex:0 0 auto;display:block}
+.sidebar-profile>div{min-width:0}
+.sidebar-social{flex-shrink:0}

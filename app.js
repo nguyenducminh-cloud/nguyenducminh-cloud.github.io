@@ -11,6 +11,8 @@
     grid: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
     user:'<circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/>',
     book:'<path d="M3 4h6a4 4 0 0 1 3 1 4 4 0 0 1 3-1h6v16h-6a4 4 0 0 0-3 1 4 4 0 0 0-3-1H3zM12 5v16"/>',
+    graduation:'<path d="m2 9 10-5 10 5-10 5Z"/><path d="M6 11v6c3 3 9 3 12 0v-6M22 9v8"/>',
+    heart:'<path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z"/>',
     briefcase:'<rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12a22 22 0 0 0 18 0M10 13h4"/>',
     mail:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
     arrow:'<path d="M5 12h14m-6-6 6 6-6 6"/>',
@@ -75,7 +77,9 @@
     return result;
   }
   window.Portfolio = { icon, escape, base, toast, renderMarkdown, posts, formatDate };
-  const nav = [ ['dashboard','Dashboard','','grid'],['personal','Personal','personal.html','user'],['experience','Experience','experience.html','briefcase'],['blog','Journal','blog.html','book'],['contact','Contact','contact.html','mail'] ];
+  const timelinePages = {experience:'work',education:'education',volunteering:'volunteering'};
+  const timelineRoutes = {work:'experience.html',education:'education.html',volunteering:'volunteering.html'};
+  const nav = [ ['dashboard','Dashboard','','grid'],['personal','Personal','personal.html','user'],['experience','Work Experience','experience.html','briefcase'],['education','Education','education.html','graduation'],['volunteering','Volunteering','volunteering.html','heart'],['blog','Journal','blog.html','book'],['contact','Contact','contact.html','mail'] ];
   const pageName = nav.find(n => n[0] === page)?.[1] || 'Writing Studio';
   const storedTheme = (() => { try {return localStorage.getItem('minh-theme');} catch {return null;} })();
   if (storedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
@@ -94,28 +98,52 @@
   const tags = a => a.map(t=>`<span class="tag">${escape(t)}</span>`).join('');
   const intro = (label,title,desc,extra='') => `<div class="page-intro"><div><p class="eyebrow">${label}</p><h1>${title}</h1><p>${desc}</p></div>${extra}</div>`;
   const logo = e => e.logo ? `<img src="${base}${e.logo}" alt="${escape(e.org)} logo" loading="lazy">` : `<span class="wordmark ${e.id==='siemens'?'siemens':''}">${escape(e.mark)}</span>`;
+  const logoFrame = e => `<div class="org-logo org-logo-${e.id}">${logo(e)}</div>`;
+  const chapterHref = e => `${base}${timelineRoutes[e.kind]}#${encodeURIComponent(e.id)}`;
+  function miniChapter(e) {
+    return `<a href="${chapterHref(e)}" class="mini-timeline-row">${logoFrame(e)}<div><h3>${escape(e.org)}</h3><p>${escape(e.role)}</p></div><span>${escape(e.period)}</span>${icon('chevron')}</a>`;
+  }
+
   function postCard(post, i=0) {
     return `<a class="post-card" href="${base}blog.html?post=${encodeURIComponent(post.id)}"><div class="post-art art-${i%3}" aria-hidden="true"><span class="art-category">${escape(post.category)}</span><div class="abstract-shape"></div><span class="art-number">${String(i+1).padStart(2,'0')}</span>${icon(i%2?'layers':'book')}</div><div class="post-card-content"><div class="post-meta">${formatDate(post.date)}<span>·</span>${post.readTime || 2} min read${post.sample?'<span class="sample-label">Starter article</span>':''}</div><h3>${escape(post.title)} ${icon('up')}</h3><p>${escape(post.excerpt)}</p></div></a>`;
   }
   function dashboard() {
     const work = config.experience.filter(e=>e.kind==='work');
+    const education = config.experience.filter(e=>e.kind==='education').slice(0,2);
+    const volunteering = config.experience.filter(e=>e.kind==='volunteering');
     return `<div class="dashboard-heading"><div><p class="eyebrow">WELCOME TO MY CORNER OF THE INTERNET</p><h1>A little introduction<span class="heading-dot">.</span></h1></div><span class="outlined-pill">${icon('pin')} ${escape(config.location)}</span></div>
-    <section class="hero"><div class="hero-copy"><span class="hero-kicker"><span class="status-dot"></span> DATA SCIENCE × BUSINESS INTELLIGENCE</span><h2>Hi, I’m Minh.<br>I make data<br><span>make sense.</span></h2><p>${escape(config.summary)}<br>Currently learning, building and connecting the dots in Melbourne.</p><div class="hero-actions"><a class="button lime" href="${base}experience.html">Explore my journey ${icon('arrow')}</a><a class="hero-contact" href="${base}contact.html">Let’s talk ${icon('up')}</a></div><div class="hero-footnote"><span class="mini-line"></span> A CURIOUS MIND, ALWAYS IN MOTION</div></div><div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="portrait-frame"><img src="${base}avatar.png" alt="Portrait of Minh Nguyen" fetchpriority="high"></div><div class="photo-label"><span class="status-dot"></span><div><strong>Minh Nguyen</strong><span>Data person. Music person. People person.</span></div>${icon('up')}</div><span class="hero-star">✳</span></div></section>
+    <section class="hero"><div class="hero-copy"><span class="hero-kicker"><span class="status-dot"></span> DATA SCIENCE × BUSINESS INTELLIGENCE</span><h2>Hi, I’m Minh.<br>I make data<br><span>make sense.</span></h2><p>${escape(config.summary)}<br>Currently learning, building and connecting the dots in Melbourne.</p><div class="hero-actions"><a class="button lime" href="${base}experience.html">Explore my work ${icon('arrow')}</a><a class="hero-contact" href="${base}contact.html">Let’s talk ${icon('up')}</a></div><div class="hero-footnote"><span class="mini-line"></span> A CURIOUS MIND, ALWAYS IN MOTION</div></div><div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="portrait-frame"><img src="${base}avatar.png" alt="Portrait of Minh Nguyen" fetchpriority="high"></div><div class="photo-label"><span class="status-dot"></span><div><strong>Minh Nguyen</strong><span>Data person. Music person. People person.</span></div>${icon('up')}</div><span class="hero-star">✳</span></div></section>
     <div class="quick-grid"><a class="quick-card" href="${base}personal.html"><span class="quick-icon blue">${icon('user')}</span><div><span>A LITTLE ABOUT ME</span><h3>Beyond the résumé</h3><p>The person behind the data.</p></div>${icon('up')}</a><a class="quick-card" href="${base}blog.html"><span class="quick-icon peach">${icon('book')}</span><div><span>THE OPEN NOTEBOOK</span><h3>Ideas & observations</h3><p>Learning, one note at a time.</p></div>${icon('up')}</a><a class="quick-card" href="${base}Mario_Nguyen.pdf" download><span class="quick-icon green">${icon('download')}</span><div><span>THE SHORT VERSION</span><h3>Grab my résumé</h3><p>Experience, skills and education.</p></div>${icon('up')}</a></div>
-    <div class="home-lower"><section class="panel journey-panel"><div class="section-head"><div><p class="eyebrow">A FEW CHAPTERS SO FAR</p><h2>Where I’ve been</h2></div><a class="text-link" href="${base}experience.html">Full journey ${icon('arrow')}</a></div><div class="mini-timeline">${[config.experience.find(e=>e.id==='unimelb'),...work].map(e=>`<a href="${base}experience.html#${e.id}" class="mini-timeline-row"><div class="org-logo">${logo(e)}</div><div><h3>${escape(e.org)}</h3><p>${escape(e.role)}</p></div><span>${escape(e.period)}</span>${icon('chevron')}</a>`).join('')}</div></section>
-    <section class="now-card"><div class="now-top"><span class="status-dot"></span><span>THE NOW PAGE</span><span>↗</span></div><h2>A student of data.<br>A fan of possibility.</h2><p>Master of Data Science<br>University of Melbourne</p><div class="now-line"></div><div class="now-bottom">${icon('music')}<span>Outside the screen?<br><strong>Making time for live music.</strong></span></div><a href="${base}personal.html">Get to know me ${icon('arrow')}</a></section></div>
+    <div class="home-chapters"><section class="panel journey-panel"><div class="section-head"><div><p class="eyebrow">PUTTING DATA TO WORK</p><h2>Work experience</h2></div><a class="text-link" href="${base}experience.html">View work ${icon('arrow')}</a></div><div class="mini-timeline">${work.map(miniChapter).join('')}</div></section>
+    <section class="panel journey-panel"><div class="section-head"><div><p class="eyebrow">BUILDING THE FOUNDATION</p><h2>Education</h2></div><a class="text-link" href="${base}education.html">View education ${icon('arrow')}</a></div><div class="mini-timeline">${education.map(miniChapter).join('')}</div></section></div>
+    <section class="panel community-preview"><div class="section-head"><div><p class="eyebrow">BEYOND THE SCREEN</p><h2>Music & community</h2></div><a class="text-link" href="${base}volunteering.html">Volunteering ${icon('arrow')}</a></div><div class="community-organisations">${volunteering.map(e=>`<a class="community-organisation" href="${chapterHref(e)}">${logoFrame(e)}<div><strong>${escape(e.id==='social-work'?'Social Work Team · CTXH':e.org)}</strong><span>${escape(e.role)}</span></div>${icon('up')}</a>`).join('')}</div></section>
     <section class="journal-preview"><div class="section-head"><div><p class="eyebrow">FROM THE JOURNAL</p><h2>Notes along the way</h2></div><a class="text-link" href="${base}blog.html">Visit the journal ${icon('arrow')}</a></div><div class="journal-home-grid">${latestPosts().slice(0,2).map(postCard).join('')}<a class="journal-invitation" href="${base}contact.html"><span>GOOD WORK STARTS WITH A CONVERSATION</span><h3>Have something<br>in mind?</h3><span class="round-arrow">${icon('up')}</span><p>I’d love to hear about it.</p></a></div></section>`;
   }
   function personal() {
     return `${intro('THE PERSON BEHIND THE DATA','A curious mind.<br>A few different worlds.','Data science is part of my story. Here’s a little more of it.')}<section class="about-grid"><div class="about-portrait"><img src="${base}avatar.png" alt="Minh Nguyen"><div><span>NGUYỄN ĐỨC MINH</span><strong>Minh, or Mario.</strong></div></div><div class="about-copy panel"><span class="badge">${icon('pin')} Melbourne, Australia</span><h2>Hello, I’m Minh<span class="heading-dot">.</span></h2>${config.about.map(p=>`<p>${escape(p)}</p>`).join('')}<div class="about-facts"><div><span>BASED IN</span><strong>Melbourne, Australia</strong></div><div><span>STUDYING</span><strong>Master of Data Science</strong></div><div><span>MY FOCUS</span><strong>Data → insight → decisions</strong></div><div><span>ALSO KNOWN AS</span><strong>${escape(config.alternateName)}</strong></div></div><a class="text-link" href="${base}contact.html">Say hello ${icon('arrow')}</a></div></section>
-    <section class="skills-section"><div class="section-head"><div><p class="eyebrow">MY TOOLKIT</p><h2>Tools I think with</h2></div><span class="muted">Always room to learn something new.</span></div><div class="skills-grid">${config.skills.map((g,i)=>`<div class="skill-card"><span class="skill-number">0${i+1}</span><h3>${escape(g.name)}</h3><div class="tags">${tags(g.items)}</div></div>`).join('')}</div></section><section class="outside-card"><div class="outside-icon">${icon('music')}</div><div><p class="eyebrow">BEYOND THE SCREEN</p><h2>There’s room for music, too.</h2><p>As a Live Music Volunteer at the Royal Melbourne Hospital, I bring another part of myself into the community. It’s a different way to connect with people.</p></div><a href="${base}experience.html#rmh" class="button secondary">The full story ${icon('arrow')}</a></section>`;
+    <section class="skills-section"><div class="section-head"><div><p class="eyebrow">MY TOOLKIT</p><h2>Tools I think with</h2></div><span class="muted">Always room to learn something new.</span></div><div class="skills-grid">${config.skills.map((g,i)=>`<div class="skill-card"><span class="skill-number">0${i+1}</span><h3>${escape(g.name)}</h3><div class="tags">${tags(g.items)}</div></div>`).join('')}</div></section><section class="outside-card"><div class="outside-icon">${icon('music')}</div><div><p class="eyebrow">BEYOND THE SCREEN</p><h2>There’s room for music, too.</h2><p>As a Live Music Volunteer at the Royal Melbourne Hospital, I bring another part of myself into the community. It’s a different way to connect with people.</p></div><a href="${base}volunteering.html#rmh" class="button secondary">The full story ${icon('arrow')}</a></section>`;
   }
-  function experience() {
-    return `${intro('THE JOURNEY SO FAR','Learning. Building.<br>Connecting the dots.','From classrooms to business teams, each chapter adds a different perspective.',`<a class="button primary" href="${base}Mario_Nguyen.pdf" download>${icon('download')} Download résumé</a>`)}<div class="filter-bar" role="group" aria-label="Filter timeline">${[['all','All chapters'],['work','Work'],['education','Education'],['volunteering','Volunteering']].map(([id,t],i)=>`<button class="filter-chip ${i===0?'active':''}" data-timeline-filter="${id}" aria-pressed="${i===0}">${t}<span>${id==='all'?config.experience.length:config.experience.filter(e=>e.kind===id).length}</span></button>`).join('')}<span class="timeline-order">MOST RECENT FIRST</span></div><div id="timeline" class="timeline"></div><section class="project-section"><div class="section-head"><div><p class="eyebrow">A CLOSER LOOK</p><h2>Work in focus</h2></div></div><div class="project-grid">${config.projects.map((p,i)=>`<article class="project-card"><div class="project-symbol symbol-${i}">${icon(p.icon)}</div><p class="eyebrow">${escape(p.category)}</p><h3>${escape(p.title)}</h3><p>${escape(p.summary)}</p><div class="tags">${tags(p.tags)}</div></article>`).join('')}</div></section>`;
+  function focusSection(title,projects) {
+    if(!projects.length) return '';
+    return `<section class="project-section"><div class="section-head"><div><p class="eyebrow">A CLOSER LOOK</p><h2>${title}</h2></div></div><div class="project-grid ${projects.length===1?'project-grid-single':''}">${projects.map((p,i)=>`<article class="project-card"><div class="project-symbol symbol-${i}">${icon(p.icon)}</div><p class="eyebrow">${escape(p.category)}</p><h3>${escape(p.title)}</h3><p>${escape(p.summary)}</p><div class="tags">${tags(p.tags)}</div></article>`).join('')}</div></section>`;
   }
-  function drawTimeline(filter='all') {
-    const entries = config.experience.filter(e => filter === 'all' || e.kind === filter).sort((a,b)=>b.start.localeCompare(a.start));
-    $('#timeline').innerHTML = entries.map(e=>`<article class="timeline-entry" id="${e.id}"><div class="timeline-date"><strong>${escape(e.period.split(' — ')[0])}</strong><span>${escape(e.kind === 'work'?'Work experience':e.kind==='education'?'Education':'Volunteering')}</span></div><div class="timeline-node"></div><div class="timeline-card"><div class="timeline-card-head"><div class="org-logo">${logo(e)}</div><div><h2>${escape(e.org)}</h2><p>${escape(e.role)}</p></div><span class="badge ${e.period.includes('Present')?'current-badge':''}">${e.period.includes('Present')?'<span class="status-dot"></span> ':''}${escape(e.period)}</span></div><p class="timeline-summary">${escape(e.summary)}</p>${e.bullets.length?`<details><summary>What this chapter involved ${icon('chevron')}</summary><ul>${e.bullets.map(b=>`<li>${escape(b)}</li>`).join('')}</ul></details>`:''}<div class="tags">${tags(e.tags)}</div></div></article>`).join('');
+  function timelinePage(kind) {
+    const content = {
+      work:{eyebrow:'WORK EXPERIENCE',title:'Turning data into<br>practical decisions.',description:'Industry experience in business intelligence, finance reporting and data science.',count:'industry roles',projects:config.projects.filter(p=>p.category.startsWith('Experience')),focus:'Work in focus'},
+      education:{eyebrow:'EDUCATION',title:'A foundation in curiosity.<br>A journey in learning.',description:'My education, from the first school chapters to postgraduate data science.',count:'education chapters',projects:config.projects.filter(p=>p.category==='Capstone project'),focus:'Learning in practice'},
+      volunteering:{eyebrow:'VOLUNTEERING',title:'Music and community.<br>Different ways to contribute.',description:'Live music at the Royal Melbourne Hospital and social work at Le Hong Phong.',count:'community roles',projects:[],focus:''}
+    }[kind];
+    const count = config.experience.filter(e=>e.kind===kind).length;
+    return `${intro(content.eyebrow,content.title,content.description,`<a class="button primary" href="${base}Mario_Nguyen.pdf" download>${icon('download')} Download résumé</a>`)}
+    <div class="timeline-toolbar"><span class="outlined-pill">${count} ${content.count}</span><div class="timeline-controls"><button class="text-button" id="timeline-expand" type="button">Expand details ${icon('chevron')}</button><label class="timeline-order-label"><span class="visually-hidden">Timeline order</span><select class="select timeline-order-select" id="timeline-order"><option value="newest">Newest first</option><option value="oldest">Oldest first</option></select></label></div></div>
+    <div id="timeline" class="timeline"></div>${focusSection(content.focus,content.projects)}`;
+  }
+  function experience(){return timelinePage('work');}
+  function education(){return timelinePage('education');}
+  function volunteering(){return timelinePage('volunteering');}
+  function drawTimeline(kind,order='newest') {
+    const entries = config.experience.filter(e=>e.kind===kind).sort((a,b)=>order==='oldest'?a.start.localeCompare(b.start):b.start.localeCompare(a.start));
+    $('#timeline').innerHTML = entries.map(e=>`<article class="timeline-entry" id="${e.id}"><div class="timeline-date"><strong>${escape(e.period.split(' — ')[0])}</strong><span>${escape(e.kind==='work'?'Work experience':e.kind==='education'?'Education':'Volunteering')}</span></div><div class="timeline-node"></div><div class="timeline-card"><div class="timeline-card-head">${logoFrame(e)}<div><h2>${escape(e.org)}</h2><p>${escape(e.role)}</p></div><span class="badge ${e.period.includes('Present')?'current-badge':''}">${e.period.includes('Present')?'<span class="status-dot"></span> ':''}${escape(e.period)}</span></div><p class="timeline-summary">${escape(e.summary)}</p>${e.bullets.length?`<details><summary>What this chapter involved ${icon('chevron')}</summary><ul>${e.bullets.map(b=>`<li>${escape(b)}</li>`).join('')}</ul></details>`:''}<div class="tags">${tags(e.tags)}</div></div></article>`).join('');
   }
   function blog() {
     const id = new URLSearchParams(location.search).get('post');
@@ -136,15 +164,31 @@
   function contact() {
     return `${intro('LET’S CONNECT','Good things start<br>with a hello.','A project, an opportunity, a shared interest — I’m happy to hear from you.')}<div class="contact-grid"><section class="contact-info"><div class="contact-feature">${icon('mail')}<span>THE BEST WAY TO REACH ME</span><a href="mailto:${escape(config.email)}">${escape(config.email)} ${icon('up')}</a><button class="text-button copy-email">${icon('copy')} Copy email address</button></div><a class="contact-method panel" href="${escape(config.github)}" target="_blank" rel="noopener noreferrer"><span class="quick-icon blue">${icon('github')}</span><span><strong>Find me on GitHub</strong><small>@nguyenducminh-cloud</small></span>${icon('up')}</a><div class="contact-location panel">${icon('globe')}<div><strong>Based in Melbourne, Australia</strong><span id="contact-time">${icon('clock')} Melbourne local time</span></div><div class="location-mark" aria-hidden="true">MEL</div></div></section><section class="panel contact-form-panel"><h2>What’s on your mind?</h2><p>Leave a little context and let’s start a conversation.</p><form id="contact-form"><div class="form-grid"><label class="field"><span class="field-label">Your name</span><input class="input" name="name" placeholder="Alex Taylor" required maxlength="120" autocomplete="name"></label><label class="field"><span class="field-label">Your email</span><input class="input" name="email" type="email" placeholder="alex@example.com" required maxlength="180" autocomplete="email"></label></div><label class="field"><span class="field-label">Subject</span><input class="input" name="subject" placeholder="Let’s work on something interesting" required maxlength="180"></label><label class="field"><span class="field-label">Message</span><textarea class="textarea" name="message" placeholder="Hi Minh, I’d love to chat about…" required minlength="10" maxlength="5000" rows="6"></textarea></label><button class="button primary" type="submit">Continue to email ${icon('up')}</button><p class="form-help">Opens your email app with a draft. You can review it before sending.</p></form></section></div>`;
   }
-  const renderers = {dashboard,personal,experience,blog,contact};
+  const renderers = {dashboard,personal,experience,education,volunteering,blog,contact};
   if (renderers[page]) $('#page-content').innerHTML = renderers[page]();
-  if (page === 'experience') {
-    drawTimeline();
-    $$('[data-timeline-filter]').forEach(b=>b.addEventListener('click',()=>{
-      $$('[data-timeline-filter]').forEach(c=>{ c.classList.toggle('active',c===b); c.setAttribute('aria-pressed',String(c===b)); });
-      drawTimeline(b.dataset.timelineFilter);
-    }));
-    if (location.hash) requestAnimationFrame(()=> document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView());
+  if (timelinePages[page]) {
+    const kind=timelinePages[page];
+    drawTimeline(kind);
+    const expandButton=$('#timeline-expand');
+    $('#timeline-order').addEventListener('change',e=>{
+      drawTimeline(kind,e.target.value);
+      expandButton.innerHTML=`Expand details ${icon('chevron')}`;
+    });
+    expandButton.addEventListener('click',()=>{
+      const details=$$('#timeline details');
+      const expand=details.some(el=>!el.open);
+      details.forEach(el=>el.open=expand);
+      expandButton.innerHTML=`${expand?'Collapse details':'Expand details'} ${icon('chevron')}`;
+    });
+    if (location.hash) requestAnimationFrame(()=>{
+      let id='';try{id=decodeURIComponent(location.hash.slice(1));}catch{return;}
+      const target=document.getElementById(id);
+      if(target)target.scrollIntoView();
+      else{
+        const entry=config.experience.find(e=>e.id===id);
+        if(entry&&entry.kind!==kind)location.replace(chapterHref(entry));
+      }
+    });
   }
   if (page === 'blog' && $('#blog-search')) {
     let category = 'All';

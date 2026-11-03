@@ -1,4 +1,4 @@
-MINH NGUYEN — PORTFOLIO: BẢN UPLOAD MỘT LẦN
+MINH NGUYEN — PORTFOLIO V2: BẢN UPLOAD MỘT LẦN
 
 Toàn bộ website nằm trong cùng một thư mục. Không có thư mục con.
 
@@ -16,20 +16,31 @@ CÁCH UPLOAD
 Không upload nguyên ZIP. Upload TẤT CẢ các file đã giải nén trong MỘT LẦN.
 index.html phải nằm ngay ngoài cùng repository.
 Gói gồm dưới 100 file, không có file nào quá 25 MiB.
-Các file cũ trùng tên được cập nhật khi commit. Những thư mục cũ có thể để nguyên;
+Upload đầy đủ gói mới để các trang, logo và mã dùng chung cùng được cập nhật.
+Các file cũ trùng tên được cập nhật khi commit. Không bắt buộc xóa thư mục cũ;
 thanh điều hướng mới sử dụng các file .html nằm ngoài cùng.
 
 CÁC TRANG
 index.html       Dashboard
 personal.html    Thông tin cá nhân và kỹ năng
-experience.html  Timeline học tập, công việc, tình nguyện
+experience.html  Work Experience: Siemens và OCB
+education.html   Education: toàn bộ quá trình học tập
+volunteering.html Volunteering: Royal Melbourne Hospital và Đội Công tác Xã hội
+                  THPT chuyên Lê Hồng Phong (CTXH)
 blog.html        Danh sách và trang đọc bài
 contact.html     Liên hệ
 studio.html      Soạn và xem trước blog
 background.html  Chuyển đến experience.html
 
+Bản v2 có ba trang riêng trong menu: Work Experience, Education và Volunteering.
+Thông tin hồ sơ, kỹ năng và các mốc thời gian được giữ nguyên; nhận diện CTXH
+được cập nhật theo tài liệu đã cung cấp. Các logo bổ sung: siemens.png, rmh.png,
+ctxh.png. Tất cả đều nằm ngoài cùng, không cần tạo thư mục logo.
+
 CẬP NHẬT NỘI DUNG
 - Sửa profile.js để cập nhật hồ sơ, timeline, kỹ năng.
+  Mục kind trong mỗi bản ghi xác định trang: work → Work Experience,
+  education → Education, volunteering → Volunteering.
 - Thay avatar.png để cập nhật ảnh. Giữ nguyên tên file.
 - Thay Mario_Nguyen.pdf để cập nhật CV tải xuống.
 - Sửa style.css để đổi giao diện.

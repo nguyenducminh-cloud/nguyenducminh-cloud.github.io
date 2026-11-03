@@ -85,7 +85,7 @@
   if (storedTheme === 'dark') document.documentElement.dataset.theme = 'dark';
   document.body.innerHTML = `<a class="skip-link" href="#page-content">Skip to content</a>
     <aside class="sidebar" id="sidebar" aria-label="Main navigation">
-      <a class="brand" href="${base}" aria-label="Minh Nguyen home"><img src="${base}brand.png" alt="Minh’s M logo"><span>minh<span class="brand-dot">.</span><small>THE PERSONAL PORTFOLIO</small></span></a>
+      <a class="brand" href="${base}" aria-label="Minh Nguyen home"><img src="${base}brand-mark.png?v=20261103-brandexact" alt="Minh’s M logo"><span>minh<span class="brand-dot">.</span><small>THE PERSONAL PORTFOLIO</small></span></a>
       <div class="sidebar-scroll">
         <div class="nav-caption">EXPLORE MY WORLD</div>
         <nav>${nav.map(([id,label,url,ic]) => `<a href="${base}${url}" class="nav-item ${id===page?'active':''}" ${id===page?'aria-current="page"':''}>${icon(ic)}<span>${label}</span>${id===page?'<span class="nav-active-dot"></span>':''}</a>`).join('')}</nav>

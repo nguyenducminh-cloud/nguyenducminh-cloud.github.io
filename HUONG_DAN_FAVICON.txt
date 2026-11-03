@@ -1,12 +1,12 @@
-BAN SUA FAVICON
+CẬP NHẬT LOGO GÓC TRÁI + FAVICON + KHUNG SIEMENS
 
-1. Giai nen ZIP nay. Tat ca file deu nam ngoai cung.
-2. Trong GitHub repository, chon Add file > Upload files.
-3. Chon TAT CA file trong ZIP da giai nen, upload vao thu muc goc va Commit changes. Khong upload chinh file ZIP.
-4. Cho GitHub Pages deploy xong, dong tab web cu va mo lai. Co the kiem tra bang cua so an danh.
+1. Giải nén ZIP này. Có 18 file, tất cả nằm ngoài cùng.
+2. Mở repository GitHub → Add file → Upload files.
+3. Chọn toàn bộ 18 file đã giải nén, upload vào thư mục gốc rồi Commit changes. Không upload chính file ZIP.
+4. Chờ GitHub Pages triển khai xong rồi mở lại trang.
 
-Ban sua dung anh M nen navy, chu xanh lime, co va sao trong favicon.ico ban vua upload. Logo sidebar brand.png duoc giu nguyen.
+Logo góc trái dùng CHÍNH XÁC ảnh brand.png bạn gửi, giữ nguyên toàn bộ dữ liệu ảnh. Ảnh này được chép thêm thành brand-mark.png để tạo đường dẫn mới, tránh ảnh cũ lưu trong trình duyệt. Phải upload cả brand-mark.png, app.js, style.css và các trang HTML.
 
-Luu y: cac folder cu personal/, blog/, contact/, background/ van la website cu. Hay dung personal.html, blog.html, contact.html va menu tren Dashboard. Ban sua nay cap nhat cac trang .html ngoai cung.
+Gói này giữ các bản sửa favicon, khung Siemens và sidebar trước đó. Kích thước hiển thị logo góc trái vẫn 43×43 px; ảnh được hiển thị đầy đủ theo góc trong suốt vốn có.
 
-KHUNG SIEMENS: Da dong bo kich thuoc voi cac khung logo thong thuong tren Dashboard va Work Experience, gom ca mobile. Giu ty le logo goc. Goi nay co 15 file, bao gom ca ban sua favicon truoc do.
+Các thư mục cũ personal/, blog/, contact/, background/ vẫn chứa website cũ. Hãy dùng menu trên Dashboard và các trang personal.html, blog.html, contact.html.

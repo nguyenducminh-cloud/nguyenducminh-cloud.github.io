@@ -1,0 +1,12 @@
+BAN SUA FAVICON
+
+1. Giai nen ZIP nay. Tat ca file deu nam ngoai cung.
+2. Trong GitHub repository, chon Add file > Upload files.
+3. Chon TAT CA file trong ZIP da giai nen, upload vao thu muc goc va Commit changes. Khong upload chinh file ZIP.
+4. Cho GitHub Pages deploy xong, dong tab web cu va mo lai. Co the kiem tra bang cua so an danh.
+
+Ban sua dung anh M nen navy, chu xanh lime, co va sao trong favicon.ico ban vua upload. Logo sidebar brand.png duoc giu nguyen.
+
+Luu y: cac folder cu personal/, blog/, contact/, background/ van la website cu. Hay dung personal.html, blog.html, contact.html va menu tren Dashboard. Ban sua nay cap nhat cac trang .html ngoai cung.
+
+KHUNG SIEMENS: Da dong bo kich thuoc voi cac khung logo thong thuong tren Dashboard va Work Experience, gom ca mobile. Giu ty le logo goc. Goi nay co 15 file, bao gom ca ban sua favicon truoc do.
